@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pantheon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/PantheonDemo.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <header>
+    <img src="images/Game.jpg" height="375px" width="100%">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand">Pantheon</a>
+        </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="MainPage.html">Home</a></li>
+        <li class="active"><a href="statCalculator.html">Stat Calculator</a></li>
+        <li><a href="tutorial.html">How To</a></li>
+        <li><a href="background.html">Game Background</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+      </div>
+      </div>
+    </nav>
+  </header>
+</head>
+<body>
+<div class="container">  
+  <div id="HomeScreen">
+      <div class="row">
+        <div class="col-sm-03">HP:&nbsp;</div>
+        <input id="currentHPTextbox" type="text" placeholder="current" class="col-sm-03">
+        <div class="col-sm-03">&nbsp;/&nbsp;</div>
+        <input id="baseHPTextbox" type="text" placeholder="base" class="col-sm-03">
+      </div>
+      <div class="row">
+        <input type="text" id="rollResultTextbox" class="col-sm-12" readonly>
+      </div>
+      <div class="row">
+        <button id="rollStatButton" class="col-sm-06">ROLL STAT</button>
+        <select id="selectStat" class="col-sm-06">
+          <option id="statLabel" disabled selected option>--STATS--</option>
+          <option>STR</option>
+          <option>CON</option>
+          <option>AGI</option>
+          <option>INT</option>
+          <option>CHA</option>
+          <option>PER</option>
+        </select>
+      </div>
+      <div class="row">
+        <button id="rollDiceButton" class="col-sm-04">ROLL DICE</button>
+        <input id="numberOfDice" type="number" class="col-sm-04" placeholder="# of dice" min=1 step=1>
+        <select id="selectDice" class="col-sm-04">
+          <option id="diceLabel" disabled selected option>--DICE--</option>
+          <option value="4">d4</option>
+          <option value="6">d6</option>
+          <option value="8">d8</option>
+          <option value="12">d12</option>
+          <option value="20">d20</option>
+          <option value="100">d100</option>
+        </select>
+      </div>    
+      <div class="row"><button id="statScreenButton" class="col-sm-12">STATS</button></div>
+      <div class="row"><button id="featScreenButton" class="col-sm-12">FEATS</button></div>
+      <div class="row"><button id="spellScreenButton" class="col-sm-12">SPELLS</button></div>
+    </div>
+    <!--end home screen-->  
+    
+    <div id="StatScreen">
+      <div class="row"><h5 class="col-sm-12">STATS</h5></div>
+      <div class="row">
+        <div class="col-sm-04">STR</div> 
+        <input id="strTextbox" type="text" class="col-sm-04">
+        <input id="strModsButton" type="button" class="col-sm-04" value="STR MODS">
+      </div>
+      <div class="row">
+        <div class="col-sm-04">CON</div>
+        <input id="conTextbox" type="text" class="col-sm-04">
+        <input id="conModsButton" type="button" class="col-sm-04" value="CON MODS">
+      </div>
+      <div class="row">
+        <div class="col-sm-04">AGI</div>
+        <input id="agiTextbox" type="text" class="col-sm-04">
+        <input id="agiModsButton" type="button" class="col-sm-04" value="AGI MODS">
+      </div>
+      <div class="row">
+        <div class="col-sm-04">INT</div>
+        <input id="intTextbox" type="text" class="col-sm-04">
+        <input id="intModsButton" type="button" class="col-sm-04" value="INT MODS">
+      </div>
+      <div class="row">
+        <div class="col-sm-04">CHA</div>
+        <input id="chaTextbox" type="text" class="col-sm-04">
+        <input id="chaModsButton" type="button" class="col-sm-04" value="CHA MODS">
+      </div>
+      <div class="row">
+        <div class="col-sm-04">PER</div>
+        <input id="perTextbox" type="text" class="col-sm-04">
+        <input id="perModsButton" type="button" class="col-sm-04" value="PER MODS">
+      </div>
+      <div class="row">
+        <input class="returnButton col-sm-12" type="button" value="Return">
+      </div>
+    </div>
+    <!--end stat screen-->
+
+    <div id="StrModsScreen">
+      <div class="row"><h5 class="col-sm-12">STR MODS</h5></div>
+      <row class="row"><input class="confirmButton col-sm-12" type="button" value="Confirm">
+      <div>
+        <div class="row">
+          <select class="col-sm-12">
+            <option>--MOD TYPE--</option>
+            <option>Wearable</option>
+            <option>Consumable</option>
+            <option>Curse</option>
+            <option>Temporary</option>
+          </select>
+        </div>
+        <div class="row">
+          <input type="text" placeholder="amount of mod" class="col-sm-12">
+        </div>
+        <div class="row">
+          <input class="modAddButton col-sm-12" type="button" value="Add">
+        </div>
+        <div class="row">
+          <input class="modDeleteButton col-sm-12" type="button" value="Delete">
+        </div>
+      </div>
+    </div>
+    <!--end str mods-->
+
+    <div id="ConModsScreen">
+      <div class="row"><h5 class="col-sm-12">CON MODS</h5></div>
+      <row class="row"><input class="confirmButton col-sm-12" type="button" value="Confirm">
+      <div>
+        <div class="row">
+          <select class="col-sm-12">
+            <option>--MOD TYPE--</option>
+            <option>Wearable</option>
+            <option>Consumable</option>
+            <option>Curse</option>
+            <option>Temporary</option>
+          </select>
+        </div>
+        <div class="row">
+          <input type="text" placeholder="amount of mod" class="col-sm-12">
+        </div>
+        <div class="row">
+          <input class="modAddButton col-sm-12" type="button" value="Add">
+        </div>
+        <div class="row">
+          <input class="modDeleteButton col-sm-12" type="button" value="Delete">
+        </div>
+      </div>
+    </div>
+    <!--end con mods-->
+
+    <div id="AgiModsScreen">
+      <div class="row"><h5 class="col-sm-12">AGI MODS</h5></div>
+      <row class="row"><input class="confirmButton col-sm-12" type="button" value="Confirm">
+      <div>
+        <div class="row">
+          <select class="col-sm-12">
+            <option>--MOD TYPE--</option>
+            <option>Wearable</option>
+            <option>Consumable</option>
+            <option>Curse</option>
+            <option>Temporary</option>
+          </select>
+        </div>
+        <div class="row">
+          <input type="text" placeholder="amount of mod" class="col-sm-12">
+        </div>
+        <div class="row">
+          <input class="modAddButton col-sm-12" type="button" value="Add">
+        </div>
+        <div class="row">
+          <input class="modDeleteButton col-sm-12" type="button" value="Delete">
+        </div>
+      </div>
+    </div>
+    <!--end agi mods-->
+
+    <div id="IntModsScreen">
+      <div class="row"><h5 class="col-sm-12">INT MODS</h5></div>
+      <row class="row"><input class="confirmButton col-sm-12" type="button" value="Confirm">
+      <div>
+        <div class="row">
+          <select class="col-sm-12">
+            <option>--MOD TYPE--</option>
+            <option>Wearable</option>
+            <option>Consumable</option>
+            <option>Curse</option>
+            <option>Temporary</option>
+          </select>
+        </div>
+        <div class="row">
+          <input type="text" placeholder="amount of mod" class="col-sm-12">
+        </div>
+        <div class="row">
+          <input class="modAddButton col-sm-12" type="button" value="Add">
+        </div>
+        <div class="row">
+          <input class="modDeleteButton col-sm-12" type="button" value="Delete">
+        </div>
+      </div>
+    </div>
+    <!--end int mods-->
+
+    <div id="ChaModsScreen">
+      <div class="row"><h5 class="col-sm-12">CHA MODS</h5></div>
+      <row class="row"><input class="confirmButton col-sm-12" type="button" value="Confirm">
+      <div>
+        <div class="row">
+          <select class="col-sm-12">
+            <option>--MOD TYPE--</option>
+            <option>Wearable</option>
+            <option>Consumable</option>
+            <option>Curse</option>
+            <option>Temporary</option>
+          </select>
+        </div>
+        <div class="row">
+          <input type="text" placeholder="amount of mod" class="col-sm-12">
+        </div>
+        <div class="row">
+          <input class="modAddButton col-sm-12" type="button" value="Add">
+        </div>
+        <div class="row">
+          <input class="modDeleteButton col-sm-12" type="button" value="Delete">
+        </div>
+      </div>
+    </div>
+    <!--end cha mods-->
+
+    <div id="PerModsScreen">
+      <div class="row"><h5 class="col-sm-12">PER MODS</h5></div>
+      <row class="row"><input class="confirmButton col-sm-12" type="button" value="Confirm">
+      <div>
+        <div class="row">
+          <select class="col-sm-12">
+            <option>--MOD TYPE--</option>
+            <option>Wearable</option>
+            <option>Consumable</option>
+            <option>Curse</option>
+            <option>Temporary</option>
+          </select>
+        </div>
+        <div class="row">
+          <input type="text" placeholder="amount of mod" class="col-sm-12">
+        </div>
+        <div class="row">
+          <input class="modAddButton col-sm-12" type="button" value="Add">
+        </div>
+        <div class="row">
+          <input class="modDeleteButton col-sm-12" type="button" value="Delete">
+        </div>
+      </div>
+    </div>
+    <!--end per mods-->
+    <!--end mods screens-->
+
+    <div id="FeatScreen">
+      <div class="row">
+        <input class="returnButton col-sm-03" type="button" value="Return">
+        <input id="allFeatsButton" class="col-sm-03" type="button" value="All Feats">
+        <input id="myFeatsButton" class="col-sm-03" type="button" value="My Feats">
+        <input id="eligibleFeatsButton" class="col-sm-03" type="button" value="Eligible Feats">
+        <div id="featsContainer">
+        </div>
+        <div id="myFeatsContainer">
+        </div>
+        <div id="eligibleFeatsContainer">
+        </div>
+      </div>
+    </div>
+
+    <div id="SpellScreen">
+      <div class="row">
+        <input class="returnButton col-sm-04" type="button" value="Return">
+        <input id="allSpellsButton" class="col-sm-04" type="button" value="All Spells">
+        <input id="mySpellsButton" class="col-sm-04" type="button" value="My Spells"> 
+        <div id="spellsContainer">
+        </div>
+        <div id="mySpellsContainer">
+        </div>
+      </div>
+    </div>
+    <div id="FeatDetailsScreen">
+    </div>
+    <div id = "SpellDetailsScreen">
+    </div>
+    <script type="txt/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="txt/javascript" src="http://mysqljs.com/mysql.js"></script>
+    <script type="txt/javascript" src="PantheonDemo.js"></script>
+</div>
+</body>
+</html>
