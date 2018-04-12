@@ -8973,3 +8973,10 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+/* Personal CSSS */
+.responsiveHeader{
+  width: 100%;
+  height: auto;
+}
+
